@@ -1,0 +1,35 @@
+{
+  "name": "huiguh5",
+  "version": "1.0.0",
+  "description": "huiguh5 embed html",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "dev": "browser-sync start --server --files *.css, *.html"
+  },
+  "keywords": [
+    "yike3.5"
+  ],
+  "author": "724145025@qq.com",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-px2rem-plugin": "^0.4.0",
+    "gulp-px3rem": "^0.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^2.0.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "yykyhuigu"
+  }
+}

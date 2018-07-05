@@ -1,0 +1,121 @@
+.toolcontainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    text-align: center;
+    padding: 5px 0;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #333333;
+    border: 1px solid #444444;
+    border-bottom: 0;
+}
+.toolcontainer .toolbar-text {
+    font: microsoft yahei,Menlo,Monaco,Consolas,Courier New,monospace;
+    font-weight: bold;
+    text-decoration: none !important;
+    display: block;
+    font-size: 15px
+}
+.toolcontainer .showOnPhone {
+    display: none;
+}
+@media screen and (max-width: 700px)
+{
+    .toolcontainer .showOnPhone {
+        display:inline-block;
+    }
+}
+
+.hideOnPhone {
+    display: inline-block;
+}
+@media screen and (max-width: 700px)
+{
+    .hideOnPhone {
+        display: none !important;
+    }
+}
+.toolbar-drowpdown-margin-left{
+    margin-left: -10px;
+}
+.caretbtnlink{
+    margin-top: -7px;
+}
+.dropdown-menu i {
+    font-size: 14px;
+    float: right;
+}
+.dropdown-menu .divider {
+    margin: 1px 0 !important;
+}
+.viewerLayoutIconTable {
+    width: 20px;
+    /* height:20px; */
+    /* border-collapse:collapse */
+}
+.viewerLayoutIconTable td {
+    border: 1px solid white;
+    background-color: black
+}
+i {
+     font-size:30px 
+}
+a.btn {
+    padding: 2px !important;
+}
+.btn {
+    margin-left: 0 !important;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn-link {
+    color: #979797;
+    font-weight: normal;
+    border-radius: 0;
+}
+.btn-link:hover{
+    color: #ffffff
+}
+.btn-link-active{
+    color: #ffffff
+}
+#descModal .modal-body p, #workingProgressModal .modal-body p {
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    min-height: 40px;
+}
+.huigu_qrcode_con_p{
+    margin-top: 10px
+}
+#studyInfoWithoutRS .badge{
+    line-height: 2.45;
+    padding: 3px 3px;
+    background-color: #979797;
+}
+#studyInfoWithoutRS .load-active{
+    color: #337ab7;
+    background-color: #fff;
+}

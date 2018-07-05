@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>医疗影像中心</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="DICOM,HTML5,JavaScript,medical,imaging">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<link rel = "Shortcut Icon" href=./favicon.ico>
+<link type="text/css" rel="stylesheet" href="./csslib/all.css" />
+</head>
+
+<body>
+    <div class="toolcontainer">
+        <div class="btn-group  pull-right">
+            <div class="btn-group btn-group-lg" id="imageSettings" title="修改设置信息">
+                <a type="button" class="btn btn-link  dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <i class="glyphicon glyphicon-cog"></i><span class="caret"></span>
+                    <span class="toolbar-text toolbar-drowpdown-margin-left">设置</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li class="relativeMode"><a href="#"><i class="glyphicon glyphicon-ok"></i>适应窗口大小</a></li>
+                    <li class="absoluteMode"><a href="#"><i class=""></i>适应图像大小</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="btn-group  pull-left">
+            <div class="btn-group btn-group-lg" id="threeDMode" title="三D切换">
+                <a type="button" class="btn btn-link viewer3DMode" title="切换到3D MPR浏览模式" style="">
+                    <i class="glyphicon glyphicon-book"></i><span class="toolbar-text">三维</span>
+                </a>
+                <a type="button" class="btn btn-link viewer2DMode" title="切换回2D 原始图像查看模式" style="display: none;">
+                    <i class="glyphicon glyphicon-home"></i><span class="toolbar-text">二维</span>
+                </a>
+            </div>
+            <div class="btn-group btn-group-lg" id="changeViewport" title="改变整个检查内序列间的图像布局">
+                <a type="button" class="btn btn-link dropdown-toggle btn-lg" data-toggle="dropdown" aria-expanded="false">
+                    <i class="glyphicon glyphicon-th-large"></i><span class="caret mb5"></span>
+                    <span class="toolbar-text toolbar-drowpdown-margin-left">序列</span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                <li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="20"><td width="20"></td></tr></tbody></table></i>1X1</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="20"><td width="10"></td><td width="10"></td></tr></tbody></table></i>1X2</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="10"><td width="20"></td></tr><tr height="10"><td width="20"></td></tr></tbody></table></i>2X1</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="10"><td width="10"></td><td width="10"></td></tr><tr height="10"><td width="10"></td><td width="10"></td></tr></tbody></table></i>2X2</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="20"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr></tbody></table></i>1X3</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="6.666666666666667"><td width="20"></td></tr><tr height="6.666666666666667"><td width="20"></td></tr><tr height="6.666666666666667"><td width="20"></td></tr></tbody></table></i>3X1</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="10"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr><tr height="10"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr></tbody></table></i>2X3</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="6.666666666666667"><td width="10"></td><td width="10"></td></tr><tr height="6.666666666666667"><td width="10"></td><td width="10"></td></tr><tr height="6.666666666666667"><td width="10"></td><td width="10"></td></tr></tbody></table></i>3X2</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="6.666666666666667"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr><tr height="6.666666666666667"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr><tr height="6.666666666666667"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr></tbody></table></i>3X3</a></li></ul>
+            </div>
+
+            <div class="btn-group btn-group-lg" id="changeLayout">
+                <a type="button" class="btn btn-link  dropdown-toggle hideOnPhone" data-toggle="dropdown" aria-expanded="false">
+                    <i class="glyphicon glyphicon-th"></i><span class="caret mb5"></span>
+                    <span class="toolbar-text toolbar-drowpdown-margin-left">布局</span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                <li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="20"><td width="20"></td></tr></tbody></table></i>1X1</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="20"><td width="10"></td><td width="10"></td></tr></tbody></table></i>1X2</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="10"><td width="20"></td></tr><tr height="10"><td width="20"></td></tr></tbody></table></i>2X1</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="10"><td width="10"></td><td width="10"></td></tr><tr height="10"><td width="10"></td><td width="10"></td></tr></tbody></table></i>2X2</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="20"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr></tbody></table></i>1X3</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="6.666666666666667"><td width="20"></td></tr><tr height="6.666666666666667"><td width="20"></td></tr><tr height="6.666666666666667"><td width="20"></td></tr></tbody></table></i>3X1</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="10"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr><tr height="10"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr></tbody></table></i>2X3</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="6.666666666666667"><td width="10"></td><td width="10"></td></tr><tr height="6.666666666666667"><td width="10"></td><td width="10"></td></tr><tr height="6.666666666666667"><td width="10"></td><td width="10"></td></tr></tbody></table></i>3X2</a></li><li><a href="#"><i><table class="viewerLayoutIconTable"><tbody><tr height="6.666666666666667"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr><tr height="6.666666666666667"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr><tr height="6.666666666666667"><td width="6.666666666666667"></td><td width="6.666666666666667"></td><td width="6.666666666666667"></td></tr></tbody></table></i>3X3</a></li></ul>
+            </div>
+            
+            <div class="btn-group btn-group-lg" id="imageOperations">
+                <a type="button" class="btn btn-link dropdown-toggle showOnPhone" data-toggle="dropdown" aria-expanded="false" title="图像操作">
+                    <i class="glyphicon glyphicon-transfer"></i><span class="caret mb5"></span>
+                    <span class="toolbar-text">操作</span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="btn-link-state-phone WindowLevel"><a href="#" onclick="publicFn.seleFunction('WindowLevel')"><i class="glyphicon glyphicon-adjust"></i>调窗模式</a></li>
+                    <li class="btn-link-state-phone ZoomAndPan"><a href="#" onclick="publicFn.seleFunction('ZoomAndPan')"><i class="glyphicon glyphicon-move"></i>移动模式</a></li>
+                    <li class="btn-link-state-phone Scroll active"><a href="#" onclick="publicFn.seleFunction('Scroll')"><i class="glyphicon glyphicon-transfer"></i>浏览模式</a></li>
+                    <li class="divider"></li>
+                    <!-- <li class="viewer3DMode"><a href="#"><i class="glyphicon glyphicon-book"></i>三维阅片</a></li>
+                    <li class="viewer2DMode" style="display: none;"><a href="#"><i class="glyphicon glyphicon-home"></i>二维阅片</a></li>
+                    <li class="divider"></li> -->
+                    <li class="changeRotation"><a href="#" onclick="publicFn.transformChange()"><i class="glyphicon glyphicon-repeat"></i>旋转</a></li>
+                    <li class="changeRevert"><a href="#" onclick="publicFn.setInvplain(1)"><i class="glyphicon glyphicon-certificate"></i>取反</a></li>
+                    <li class="changeZoomIn"><a href="#" onclick="publicFn.changeSize(1)"><i class="glyphicon glyphicon-zoom-in"></i>放大</a></li>
+                    <li class="changeZoomOut"><a href="#" onclick="publicFn.changeSize(-1)"><i class="glyphicon glyphicon-zoom-out"></i>缩小</a></li>
+                    <li class="divider"></li>
+                    <li class="resetImageState"><a href="#" onclick="publicFn.appReset()"><i class="glyphicon glyphicon-ban-circle"></i>重置图像</a></li>
+                    <!-- <li class="divider"></li>
+                <li class="windowsetting"><a href="#"><i>40/350</i>Chest</a></li><li class="windowsetting"><a href="#"><i>40/350</i>Abdomen</a></li><li class="windowsetting"><a href="#"><i>-600/1500</i>Lung</a></li><li class="windowsetting"><a href="#"><i>480/2500</i>Bone</a></li><li class="windowsetting"><a href="#"><i>90/350</i>Head</a></li><li class="windowsetting"><a href="#"><i>40/80</i>Brain</a></li></ul>
+                -->
+            </div>
+
+            <div class="btn-group btn-group-lg" id="moveStateToolContainer">
+                <div class="btn-group btn-group-lg" title="调整为预设的窗宽窗位设置">
+                    <a type="button" class="btn btn-link changeWindow btn-link-state hideOnPhone" id="WindowLevel" onclick="publicFn.seleFunction('WindowLevel')" title="按下鼠标移动时改变窗宽/窗位">
+                        <i class="glyphicon glyphicon-adjust"></i>
+                        <span class="toolbar-text">调窗</span>
+                    </a>
+                    <a type="button" class="btn btn-link dropdown-toggle hideOnPhone" data-toggle="dropdown" aria-expanded="true">
+                        <i></i><span class="caret mb6"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <!--<li class="customWindowSetting"><a href="#"><i class="glyphicon glyphicon-compressed"></i>自定义窗位</a></li>-->
+                    <li class="windowsetting"><a href="#"><i>40/350</i>Chest</a></li><li class="windowsetting"><a href="#"><i>40/350</i>Abdomen</a></li><li class="windowsetting"><a href="#"><i>-600/1500</i>Lung</a></li><li class="windowsetting"><a href="#"><i>480/2500</i>Bone</a></li><li class="windowsetting"><a href="#"><i>90/350</i>Head</a></li><li class="windowsetting"><a href="#"><i>40/80</i>Brain</a></li></ul>
+                </div>
+                <a type="button" class="btn btn-link btn-link-state hideOnPhone" id="ZoomAndPan" onclick="publicFn.seleFunction('ZoomAndPan')">
+                    <i class="glyphicon glyphicon-move"></i>
+                    <span class="toolbar-text">移动</span>
+                </a>
+                <a type="button" class="btn btn-link btn-link-state btn-link-active hideOnPhone" id="Scroll" onclick="publicFn.seleFunction('Scroll')" title="按下鼠标移动时顺序浏览影像">
+                    <i class="glyphicon glyphicon-transfer"></i>
+                    <span class="toolbar-text">翻图</span>
+                </a>
+                <a type="button" class="btn btn-link hideOnPhone" onclick="publicFn.transformChange()">
+                    <i class="glyphicon glyphicon-repeat"></i>
+                    <span class="toolbar-text">旋转</span>
+                </a>
+                <a type="button" class="btn btn-link hideOnPhone" onclick="publicFn.setInvplain(1)">
+                    <i class="glyphicon glyphicon-certificate"></i>
+                    <span class="toolbar-text">反片</span>
+                </a>
+            </div>
+
+            <div class="btn-group btn-group-lg">
+                <a type="button" class="btn  btn-link hideOnPhone" onclick="publicFn.playchange(-1)" id="playdown">
+                    <i class="glyphicon glyphicon-step-backward"></i>
+                    <span class="toolbar-text">向后</span>
+                </a>
+            </div>
+
+            <div class="btn-group btn-group-lg" id="playAsMovieGroup" title="顺序播放影像">
+                <a type="button" class="btn btn-link" onclick="publicFn.myappPlay(1)" id="playpoint">
+                    <i class="glyphicon glyphicon-play"></i>
+                    <span class="toolbar-text">播放</span>
+                </a>
+                <a type="button" class="btn btn-link dropdown-toggle caretbtnlink" data-toggle="dropdown" aria-expanded="true">
+                    <i></i><span class="caret mt5"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="showOnPhone moveBack"><a href="#" onclick="publicFn.playchange(-1)"><i class="glyphicon glyphicon-step-backward"></i>上一张</a></li>
+                    <li class="showOnPhone moveNext"><a href="#" onclick="publicFn.playchange(1)"><i class="glyphicon glyphicon-step-forward"></i>下一张</a></li>
+                    <li class="divider showOnPhone"></li>
+                    <li class="viewerplayspeed"><a href="#"><i class="default glyphicon glyphicon-ok"></i>默认速度播放</a></li>
+                    <li class="viewerplayspeed"><a href="#"><i class="fast"></i>全速播放[60]</a></li>
+                    <li class="viewerplayspeed"><a href="#"><i class="normal"></i>匀速播放[30]</a></li>
+                    <li class="viewerplayspeed"><a href="#"><i class="slow"></i>慢速播放[15]</a></li>
+                    <li class="viewerplayspeed"><a href="#"><i class="tardiness"></i>缓速播放[5 ]</a></li>
+                    <li class="viewerplayspeed"><a href="#"><i class="slide"></i>幻灯模式[1 ]</a></li>
+                </ul>
+            </div>
+            <div class="btn-group btn-group-lg">
+                <a type="button" class="hideOnPhone btn btn-link" onclick="publicFn.playchange(1)" id="playup">
+                    <i class="glyphicon glyphicon-step-forward"></i>
+                    <span class="toolbar-text">向前</span>
+                </a>
+            </div>
+            <div class="btn-group btn-group-lg">
+                <a type="button" class="btn btn-link hideOnPhone" onclick="publicFn.changeSize(-1)">
+                    <i class="glyphicon glyphicon-zoom-out"></i>
+                    <span class="toolbar-text">缩小</span>
+                </a>
+                <a type="button" class="btn btn-link hideOnPhone" onclick="publicFn.changeSize(1)">
+                    <i class="glyphicon glyphicon-zoom-in"></i>
+                    <span class="toolbar-text">放大</span>
+                </a>
+                <a type="button" class="btn btn-link hideOnPhone" onclick="publicFn.appReset()">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span class="toolbar-text">重置</span>
+                </a>
+            </div>
+            <div class="btn-group btn-group-lg">
+                <a type="button" class="btn btn-link showDescModal btn-lg" id="studyInfoWithoutRS" data-toggle="modal" data-target="#descModal" title="显示检查信息">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    <span class="toolbar-text">二维码</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="dwvContainer">
+        <div id="preview-dwv" class="dwv-item dwv-preview">
+            <div class="toolbar"></div>
+            <div class="toolList"></div>
+            <div class="layerContainer">
+                <canvas class="imageLayer">Only for HTML5 compatible browsers...</canvas>
+                <!-- <div class="drawDiv"></div> -->
+                <div class="infoLayer">
+                    <span class="layer-count-fps" id="countfps"></span>
+                    <div class="infotl"></div>
+                    <div class="infotc"></div>
+                    <div class="infotr"></div>
+                    <div class="infocl"></div>
+                    <div class="infocr"></div>
+                    <div class="infobl"></div>
+                    <div class="infobc"></div>
+                    <div class="infobr"></div>
+                    <!-- <div class="plot"></div> -->
+                    <span class="layer-count-num" id="number"></span>
+                </div>
+            </div>
+        </div>
+        <div class="seqContainer"></div>
+    </div>
+
+    <div class="previewcontainer">
+        <span class="preview-left-arrow hover glyphicon glyphicon-menu-left" onclick="publicFn.changeViewPage(1)"></span>
+        <div class="view-canvas-ul-container">
+            <div class="view-canvas-ul-list"></div>
+        </div>
+        <div class="prewDownDwvContainer"></div>
+        <span class="preview-right-arrow hover glyphicon glyphicon-menu-right" onclick="publicFn.changeViewPage(-1)"></span>
+    </div>
+
+    <div class="modal fade" id="descModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">二维码扫描</h4>
+                </div>
+                <div class="modal-body">
+                    <p><span class="imagedesc"></span><span class="cacheseries"></span></p>
+                    <div style="text-align: center;">
+                        <div id="huigu_qrcode_con" >
+                        </div>
+                        <p class="huigu_qrcode_con_p" style="font-weight: bold;text-align: center;">扫码打开此图像!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="threeDProgressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">正在进行3维重建，请稍候...</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%;">100%</div>
+                    </div>
+                    <br>
+                    <p>在浏览器中进行3维重建是一项比较费时费力的任务,有损压缩尤其费时,请耐心等待。对于内存有限的移动设备来说，重建任务可能会因为内存耗尽而终止。</p>
+                    <p><strong>请在性能较好的设备上进行3维重建!</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="./js/main.js"></script>  
+<iframe width="0" height="0" src="./imageCache.html" style="display: none;"></iframe>
+</html>

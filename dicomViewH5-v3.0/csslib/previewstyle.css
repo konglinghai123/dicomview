@@ -1,0 +1,93 @@
+.previewcontainer{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    width:100%;
+    height: 100px;
+    margin: 0 auto;
+    color: #333;
+    padding-top: 5px;
+    background-color: #252525;
+    border: 1px solid #444444;
+    border-top: 0;
+}
+.previewImg{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.previewcontainer .view-canvas-ul-container{
+    width: 80%;
+    height:95%;
+    margin: 0 auto;
+    border: 1px solid #5b5b5b;
+    padding: 1px;
+    overflow: hidden
+}
+.previewcontainer .view-canvas-ul-container .view-canvas-ul-list{
+    height: 100%;
+    transition: all 500ms;
+}
+.previewcontainer .view-canvas-ul-container .view-canvas-ul-list .layerContainer{
+    width: 98%;
+    height: 100%;
+}
+.previewcontainer .preview-left-arrow{
+    float: left;
+    display: inline-block;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: bold;
+    vertical-align: middle;
+    top: 50%;
+    margin-top: -20px;
+    position: absolute;
+    left: 0;
+}
+.previewcontainer .preview-left-arrow::before{
+    content: "\e257";
+}
+.previewcontainer .preview-right-arrow{
+    float: right;
+    display: inline-block;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: bold;
+    vertical-align: middle;
+    top: 50%;
+    margin-top: -20px;
+    position: absolute;
+    right: 2px;
+}
+.previewcontainer .hover:hover{
+    color: #ffffff
+}
+.previewcontainer .preview-right-arrow::before{
+        content: "\e258";
+}
+.preview-dwv{
+    width:100px;
+    height:98%;
+    display: inline-block;
+    cursor: pointer;
+    position:relative;
+    text-align: center;
+    border: 1px solid #444;
+}
+.preview-active{
+    border-color: #ffffff
+}
+.preview-dwv .layerDesc{
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    color: #ebf700
+}
+.prewDownDwvContainer{
+    display: none;
+}

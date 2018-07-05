@@ -1,0 +1,23 @@
+<html manifest="demo.manifest">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script type="text/javascript">
+        try{
+            if(window.applicationCache && parent.handleAppCache)
+                parent.handleAppCache(window.applicationCache);
+        }
+        catch(e){
+            var evts =['updateready','checking','downloading','progress','cached','error'];
+            for(var i=0;i<evts.length;i++){
+                applicationCache.addEventListener(evts[i],
+                    function(e){
+                        window.parent && window.parent.postMessage(JSON.stringify({target: 'dodo_viewer',type: e.type}), '*');
+                    }
+                )
+            }
+        }
+    </script>
+</body>
+</html>
